@@ -1,0 +1,221 @@
+.cards {
+	margin-top: 8rem;
+	height: 50vh;
+	text-align: center;
+
+	&-title {
+		padding: 3rem 0rem;
+		transition: all .1s ease;
+
+		font-size: 2.5rem;
+		text-transform: uppercase;
+		color: $color-primary;
+		font-weight: 400;
+		letter-spacing: .25rem;
+
+		&:hover {
+			transform: skewY(-3deg);
+			text-shadow: 1rem .4rem .5rem rgba(#5d8b48, .8);
+		}
+	}
+
+	@include screen(phone) {
+		height: 170vh;
+		margin-top: 4rem;
+
+		.card:not(.first-card) {
+			margin-top: 42rem;
+		}
+	}
+}
+
+// .card:first-child {
+// 	margin-top: 20rem;
+// }
+
+.card {
+	text-align: center;
+	height: 15rem;
+	width: 100%;
+	// background-color: teal;
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position: relative;
+
+	@include screen(phone) {
+		height: 5rem;
+	}
+
+	// :not(:first-of-type) {
+	// 	margin-top: 20rem;
+	// }
+	// &:not(:first-child) {
+	// 	margin-top: 20rem;
+	// }
+
+	// @include screen(phone) {
+	// 	margin-top: 20rem;
+	// }
+
+	&--side {
+		width: 100%;
+		// padding: 5rem;
+		height: 25rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 2s ease;
+		backface-visibility: hidden;
+		border-radius: .5rem;
+		overflow: hidden;
+
+		@include screen(phone) {
+			backface-visibility: visible;
+			height: 22rem;
+		}
+
+		//back-side buy
+		&-buy {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			&-text {
+				font-size: 1rem;
+			}
+
+			&-price {
+				font-size: 5rem;
+				font-weight: 100;
+			}
+		}
+
+		//list styles
+		&__details {
+			padding: 2.5rem;
+			ul {
+				margin: 0 auto;
+				// margin-top: 2rem;
+				list-style-type: none;
+				width: 90%;
+
+				li {
+					padding: .65rem;
+					&:not(:last-child) {
+						border-bottom: 1px solid #fff;
+					}
+				}
+			}
+
+			@include screen(phone) {
+				padding: .5rem;
+				ul {
+					width: 50%;
+				}
+			}
+		}
+	}
+
+	&--front {
+		// background-color: teal;
+		box-shadow: 0rem .5rem .5rem rgba(0, 0, 0, .2);
+
+		z-index: 1;
+	}
+
+	&--back {
+		// background-color: yellow;
+		box-shadow: .5rem 1rem 1rem rgba(0, 0, 0, .6);
+
+		transform: rotateY(180deg);
+		z-index: 0;
+
+		&-color-2 {
+			background-image: linear-gradient(to right bottom, $color-primary, $color-primary-light);
+		}
+
+		&-color-3 {
+			background-image: linear-gradient(to right bottom, $color-third-dark, $color-third-light);
+		}
+
+		&-color-1 {
+			background-image: linear-gradient(to right bottom, $color-second-dark, $color-second-light);
+		}
+	}
+
+	&:hover &--front {
+		transform: rotateY(-180deg);
+	}
+
+	&:hover &--back {
+		transform: rotateY(0deg);
+	}
+
+	@include screen(phone) {
+		&:hover &--front {
+			// transform: rotateY(-180deg);
+			transform: rotateY(0deg);
+		}
+
+		&--back {
+			// transform: rotateY(0deg);
+			transform: rotateY(0deg);
+		}
+
+		&--back {
+			margin-top: 22rem;
+			z-index: 1;
+		}
+	}
+
+	&__img {
+		height: 8rem;
+		background-size: cover;
+		background-blend-mode: screen;
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+
+		&--1 {
+			background-image: url(../img/nat-5.jpg),
+				linear-gradient(to right bottom, $color-second-dark, $color-second-light);
+		}
+
+		&--2 {
+			background-image: url(../img/nat-6.jpg),
+				linear-gradient(to right bottom, $color-primary, $color-primary-light);
+		}
+
+		&--3 {
+			background-image: url(../img/nat-7.jpg),
+				linear-gradient(to right bottom, $color-third-dark, $color-third-light);
+		}
+	}
+
+	&__header {
+		text-transform: uppercase;
+		text-align: right;
+		position: absolute;
+		top: 4rem;
+		right: 0rem;
+		color: #fff;
+		width: 65%;
+		border-radius: 3px;
+		padding: 2rem 0 2rem 2rem;
+
+		&--1 {
+			background-image: linear-gradient(to right bottom, $color-second-dark, $color-second-light);
+		}
+		&--2 {
+			background-image: linear-gradient(to right bottom, $color-primary, $color-primary-light);
+		}
+		&--3 {
+			background-image: linear-gradient(to right bottom, $color-third-dark, $color-third-light);
+		}
+
+		&-span {
+			padding: .5rem;
+			box-decoration-break: clone;
+		}
+	}
+}

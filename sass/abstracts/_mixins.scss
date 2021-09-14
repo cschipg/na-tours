@@ -1,0 +1,52 @@
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin column-format {
+	// background-color: silver;
+	float: left;
+
+	&:not(:last-child) {
+		margin-right: $column-margin-right;
+
+		// @include screen(phone) {
+		// 	margin-right: 0;
+		// }
+	}
+}
+
+@mixin screen($size) {
+	// $phone: "(min-width:0px) && (max-width: 600px)";
+	// $tablet-landscape: "(min-width:601px) && (max-width: 900px)";
+	// $stablet-portrait: "(min-width:901px) && (max-width: 1200px)";
+	// $big-desktop: "(min-width: 1300px)";
+
+	$phone: "(max-width:37.5em)";
+	$tablet-landscape: " (max-width: 56.25em)";
+	$stablet-portrait: " (max-width: 75em)";
+	$big-desktop: "(min-width: 81.25em)";
+
+	@if $size == phone {
+		@media #{$phone} {
+			@content;
+		}
+	} @else if $size == tab-land {
+		@media #{$tablet-landscape} {
+			@content;
+		}
+	} @else if $size == big-desk {
+		@media #{$big-desktop} {
+			@content;
+		}
+	}
+
+	//  @else if $size == tab-port {
+	// 	@media #{$tablet-portrait} {
+	// 		@content;
+	// 	}
+	// }
+}

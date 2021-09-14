@@ -1,0 +1,55 @@
+.composition {
+	position: relative;
+
+	.comp-photo {
+		position: absolute;
+		width: 55%;
+		box-shadow: 0rem 1rem 1rem rgba($color-primary-black, .4);
+		z-index: 0;
+		transition: all .2s;
+		border-radius: .5rem;
+
+		&--1 {
+			top: 0rem;
+			left: 0;
+		}
+		&--2 {
+			top: 3rem;
+			right: .5rem;
+		}
+		&--3 {
+			top: 7rem;
+			left: 5.5rem;
+		}
+
+		@include screen(phone) {
+			width: 40%;
+
+			&--1 {
+				top: 0rem;
+				left: 3.5rem;
+			}
+
+			&--2 {
+				top: 0rem;
+				right: 3.5rem;
+			}
+
+			&--3 {
+				top: 2rem;
+				left: 10rem;
+			}
+		}
+
+		&:hover {
+			transform: translateY(-.2rem);
+			transform: scale(1.10);
+			z-index: 1;
+			box-shadow: 0rem 1.5rem 1.5rem rgba($color-primary-black, .4);
+		}
+	}
+
+	&:hover .comp-photo:not(:hover) {
+		transform: scale(.90);
+	}
+}

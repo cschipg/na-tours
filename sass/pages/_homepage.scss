@@ -1,0 +1,181 @@
+.main-section {
+	padding: 25rem 0rem;
+	margin-top: -23rem;
+	background-color: $light-gray-1;
+
+	@include screen(phone) {
+		margin-top: -21rem;
+	}
+}
+
+.col-1-of-2 {
+	padding: 2rem;
+
+	@include screen(phone) {
+		padding: 1rem;
+	}
+}
+
+.heading-tertiary {
+	padding-bottom: 1rem;
+	font-size: 1.7rem;
+}
+
+.row-descrip {
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}
+
+.book {
+	height: 50vh;
+	background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	margin-top: 18vh;
+	position: relative;
+	// padding: 10rem 5rem;
+	// width: 50%;
+
+	.booking {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 65%;
+		width: 80%;
+		border-radius: 3px;
+		box-shadow: .5rem .5rem .8rem rgba($color-primary-black, .3);
+		// top: 50%;
+		// left: 50%;
+		// width: 50%;
+		background-image: linear-gradient(
+				100deg,
+				rgba(255, 255, 255, .8) 50%,
+				rgba(255, 255, 255, 0) 50%,
+				rgba(255, 255, 255, 0)
+			),
+			url('../img/nat-10.jpg');
+		// , -webkit-linear-gradient(to right, rgba(255, 255, 255, .9)),
+		// 	-moz-linear-gradient(to right, rgba(255, 255, 255, .8));
+		background-size: cover;
+
+		.form {
+			margin-top: 7rem;
+			height: 50%;
+			width: 50%;
+			padding: 3rem;
+			&--group {
+				width: 80%;
+				position: relative;
+				// left: 0%;
+				&:not(:last-child) {
+					margin-bottom: 1.9rem;
+				}
+
+				#name,
+				#email {
+					width: 10rem;
+					transition: all .2s;
+
+					&,
+					label {
+						border: none;
+						outline: none;
+						border-radius: 1px;
+						font-family: inherit;
+						font-size: 1rem;
+						// border: 2px solid green;
+						// font-weight: 400;
+						// width: 70;
+					}
+
+					+ label {
+						position: absolute;
+						top: 0;
+						opacity: .5;
+						visibility: hidden;
+					}
+
+					&:focus {
+						border-bottom: 2px solid orange;
+
+						&:valid {
+							border-bottom: 2px solid $color-primary-light;
+						}
+						&::placeholder {
+							color: transparent;
+						}
+
+						+ label {
+							transition: .2s all;
+							position: absolute;
+							top: 1.5rem;
+							left: 0rem;
+							opacity: .5;
+							visibility: visible;
+						}
+					}
+				}
+
+				.radio-buttons {
+					input {
+						opacity: 0;
+						outline: 0;
+
+						&#tour2 {
+							margin-left: 25%;
+						}
+
+						+ label {
+							margin: .5rem;
+
+							.radio__circle {
+								height: 1rem;
+								width: 1rem;
+								position: absolute;
+								// border: 1rem solid pink;
+								box-shadow: 0 0 0 .2rem $color-primary;
+
+								border-radius: 50%;
+								top: 15%;
+								left: 0;
+								// padding: 3rem;
+								// margin-left: 1rem;
+								transition: 1s all;
+								// opacity: 0;
+							}
+						}
+
+						&:hover + label > .radio__circle {
+							&::before {
+								transition: .5s all;
+								opacity: 0;
+							}
+
+							&::after {
+								height: 50%;
+								width: 50%;
+								background-color: $color-primary;
+								top: 25%;
+								left: 25%;
+								border-radius: 50%;
+								content: "";
+								position: absolute;
+								opacity: 1;
+								// display: block;
+								// background-color: cadetblue;
+							}
+						}
+
+						&:checked + label > .radio__circle {
+							background-color: $color-primary;
+
+							&::after {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

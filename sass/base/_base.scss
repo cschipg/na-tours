@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+
+	@include screen(tab-land) {
+		font-size: .5em;
+	}
+
+	@include screen(phone) {
+		font-size: .4em;
+	}
+
+	@include screen(big-desk) {
+		font-size: .9em;
+	}
+}
+
+body {
+	box-sizing: border-box;
+}

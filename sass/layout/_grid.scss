@@ -1,0 +1,70 @@
+.row {
+	max-width: $row-max-width;
+	// background-color: #eeeeee;
+
+	margin: 0 auto;
+
+	@include clearfix;
+
+	&:not(:last-child) {
+		margin-bottom: $row-margin-bottom;
+	}
+
+	[class^="col-"] {
+		@include column-format;
+	}
+
+	@include screen(phone) {
+		max-width: $row-max-width-phone;
+		// text-align: center;
+	}
+
+	.col-1-of-2 {
+		width: calc((100% - #{$column-margin-right}) / 2);
+		@include screen(phone) {
+			// width: calc((100% - #{$column-margin-right}));
+			width: 100%;
+
+			// text-align: center;
+			// display: block;
+			// padding: 5rem auto;
+		}
+	}
+
+	.col-1-of-3 {
+		width: calc((100% - (#{$column-margin-right} * 2)) / 3);
+
+		@include screen(phone) {
+			width: 100%;
+
+			// margin-top: 20rem;
+		}
+	}
+
+	.col-2-of-3 {
+		width: calc(100% - #{$column-margin-right} - calc((100% - (#{$column-margin-right} * 2)) / 3));
+	}
+
+	.col-1-of-4 {
+		width: calc((100% - (#{$column-margin-right} * 3)) / 4);
+		height: 100%;
+		// text-align: center;
+
+		@include screen(phone) {
+			// width: calc((100% - (#{$column-margin-right})));
+			// width: 100%;
+			width: 80%;
+			margin-top: 1rem;
+			margin-left: 3.45rem;
+			// margin: 2rem ;
+		}
+	}
+
+	.col-2-of-4 {
+		width: calc(100% - 2*(#{$column-margin-right} + calc((100% - (#{$column-margin-right} * 3)) / 4)));
+	}
+
+	.col-3-of-4 {
+		width: calc(100% - #{$column-margin-right} - calc((100% - (#{$column-margin-right} * 3)) / 4));
+	}
+}
