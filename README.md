@@ -1,3 +1,2 @@
 # na-tours
-front-end ui of na tours travel agency landing page.
- na tours css / sass
+Designed responsive agency landing page utilizing HTML, and CSS (SASS, Animations, BEM)
